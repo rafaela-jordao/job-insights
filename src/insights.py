@@ -3,7 +3,7 @@ from src.jobs import read
 
 def get_unique_job_types(path):
     all_jobs = read(path)
-    unique_job_types = set()
+    unique_job_types = set()  # inicializa um conjunto/coleção de elementos.
 
     for job in all_jobs:
         unique_job_types.add(job["job_type"])
@@ -29,21 +29,13 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    all_industries = read(path)
+    unique_industries = set()  # inicializa um conjunto/coleção de elementos.
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    for industrie in all_industries:
+        if industrie["industry"] != "":
+            unique_industries.add(industrie["industry"])
+    return list(unique_industries)
 
 
 def filter_by_industry(jobs, industry):
