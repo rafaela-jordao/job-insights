@@ -2,6 +2,7 @@ from src.jobs import read
 
 
 def get_unique_job_types(path):
+    """ retornar uma lista de valores únicos presentes na coluna job_type. """
     all_jobs = read(path)
     unique_job_types = set()  # inicializa um conjunto/coleção de elementos.
 
@@ -29,6 +30,7 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
+    """ retornar uma lista de valores únicos presentes na coluna industry. """
     all_industries = read(path)
     unique_industries = set()  # inicializa um conjunto/coleção de elementos.
 
@@ -57,6 +59,8 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
+    """ retornar um valor inteiro com o maior salário
+    presente na coluna max_salary. """
     salarys = read(path)
     max_salary = list()
 
@@ -66,26 +70,22 @@ def get_max_salary(path):
             max_salary.append(int(coin))
 
     pass
-    result = max(max_salary)
-    return result
+    return max(max_salary)
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    """ retornar um valor inteiro com o menor salário
+    presente na coluna min_salary """
+    salarys = read(path)
+    min_salary = list()
 
-    Must call `read`
+    for salary in salarys:
+        coin = salary["min_salary"]
+        if coin.isdigit():
+            min_salary.append(int(coin))
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
     pass
+    return min(min_salary)
 
 
 def matches_salary_range(job, salary):
