@@ -73,29 +73,25 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    """ A função deve retornar True se o salário procurado
+    estiver dentro da faixa salarial ou False se não estiver.
 
-    Parameters
     ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
-
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
-
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
+    Os dicionários possuem um método específico
+    para busca de valores, o get() """
+    min_salary = job.get("min_salary")
+    max_salary = job.get("max_salary")
+    if (
+        min_salary is None
+        or max_salary is None
+        or not type(job["min_salary"]) is int
+        or not type(job["max_salary"]) is int
+        or not type(salary) is int
+        or min_salary > max_salary
+    ):
+        raise ValueError
     pass
+    return int(min_salary) <= salary <= int(max_salary)
 
 
 def filter_by_salary_range(jobs, salary):
