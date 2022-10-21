@@ -95,6 +95,14 @@ def matches_salary_range(job, salary):
 
 
 def filter_by_salary_range(jobs, salary):
+    """ Para esta filtragem, podemos usar a função auxiliar implementada
+    no requisito anterior -- tomando o cuidado de descartar os empregos
+    que apresentarem faixas salariais inválidas.
+
+    ----------
+    A função deve retornar uma lista com todos os empregos onde o salário
+    salary estiver entre os valores da coluna min_salary e max_salary.
+"""
     list_salary_range = []
 
     for job in jobs:
